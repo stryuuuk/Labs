@@ -34,6 +34,17 @@ namespace labbb1
         {
             Node newnode = new Node(value);
             Node current;
+            if (IsFull())
+            {
+                Console.WriteLine("List overflow\n");
+                return;
+            }
+            if (first == null)
+            {
+                first = new Node(value, first);
+                Count++;
+                return;
+            }
             
         }
 
