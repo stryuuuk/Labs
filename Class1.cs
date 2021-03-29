@@ -6,5 +6,8 @@ namespace labbb1
 {
     class SortedLinkedList
     {
+        public int Count = 0; 
+        public Node first;
+        
     }
 }
