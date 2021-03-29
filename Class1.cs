@@ -8,6 +8,13 @@ namespace labbb1
     {
         public int Count = 0; 
         public Node first;
-        
+
+        public SortedLinkedList()
+        {
+            Count = 0;
+            first = null;
+        }
+
+
     }
 }
