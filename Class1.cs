@@ -14,7 +14,7 @@ namespace labbb1
             Count = 0;
             first = null;
         }
-
+        public int Length() { return Count; }
 
     }
 }
