@@ -30,6 +30,12 @@ namespace labbb1
                 return result;
 
         }
+        public void Add(int value)
+        {
+            Node newnode = new Node(value);
+            Node current;
+            
+        }
 
     }
 }
