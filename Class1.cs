@@ -4,7 +4,7 @@ using System.Text;
 
 namespace labbb1
 {
-    class Class1
+    class SortedLinkedList
     {
     }
 }
