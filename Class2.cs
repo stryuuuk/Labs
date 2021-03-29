@@ -8,5 +8,10 @@ namespace labbb1
     {
         public int data;
         public Node next;
+
+        public Node()
+        {
+            next = null;
+        }
     }
 }
