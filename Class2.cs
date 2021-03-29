@@ -13,5 +13,10 @@ namespace labbb1
         {
             next = null;
         }
+        public Node(int d, Node link = null)
+        {
+            data = d;
+            next = link;
+        }
     }
 }
