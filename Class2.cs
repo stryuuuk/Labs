@@ -6,5 +6,7 @@ namespace labbb1
 {
     class Node
     {
+        public int data;
+        public Node next;
     }
 }
