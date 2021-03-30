@@ -103,5 +103,27 @@ namespace labbb1
                 else break;
             }
         }
+        public void Delete(int value)
+        {
+            if (IsEmpty())
+            {
+                Console.WriteLine("List underflow");
+                return;
+            }
+            Node previous = null;
+            Node temp = first;
+            while (temp != null && temp.data != value)
+            {
+                previous = temp;
+                temp = temp.next;
+            }
+            if (previous != null && temp != null && temp.data == value)
+            {
+                previous.next = temp.next;
+                Count--;
+            }
+            else { Console.WriteLine("Item wasn't found"); }
+
+        }
     }
 }
