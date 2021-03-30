@@ -70,6 +70,16 @@ namespace labbb1
             Console.WriteLine("Your list: ");
             for (int i = 1; i <= Count; i++)
             {
-            }
+                if (temp != null)
+                {
+                    if (i == 1)
+                    {
+                        Console.Write(temp.data);
+                        if (temp.next != null)
+                            Console.Write("->");
+                        if (temp.next != null)
+                            temp = temp.next;
+                    }
+                }
         }
 }
