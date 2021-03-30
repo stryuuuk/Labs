@@ -67,27 +67,34 @@ namespace labbb1
         public void PrintList()
         {
             Node temp = first;
-            Console.WriteLine("Your list: ");
+            Console.WriteLine("\nYour list: ");
+            if (Count == 0) Console.WriteLine("null");
             for (int i = 1; i <= Count; i++)
             {
                 if (temp != null)
                 {
                     if (i == 1)
                     {
-                        Console.Write(temp.data);
+                        if (temp.data != null)
+                            Console.Write(temp.data);
                         if (temp.next != null)
-                            Console.Write("->");
-                        if (temp.next != null)
+                        {
+                            Console.Write(" -> ");
                             temp = temp.next;
+                        }
+                        else { Console.Write(" -> null"); }
                     }
-                    if (i != Count)
+                    if (i > 1 && i < Count)
                     {
                         Console.Write(temp.data);
                         if (temp.next != null)
-                            Console.Write("->");
-                        temp = temp.next;
+                        {
+                            Console.Write(" -> ");
+                            temp = temp.next;
+                        }
+                        else { Console.Write(" -> null"); }
                     }
-                    else
+                    if (i == Count && i != 1)
                     {
                         Console.Write(temp.data);
                         temp = temp.next;
