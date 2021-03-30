@@ -6,7 +6,7 @@ namespace labbb1
 {
     class SortedLinkedList
     {
-        public int Count = 0; 
+        public int Count = 0;
         public Node first;
 
         public SortedLinkedList()
@@ -80,6 +80,21 @@ namespace labbb1
                         if (temp.next != null)
                             temp = temp.next;
                     }
+                    if (i != Count)
+                    {
+                        Console.Write(temp.data);
+                        if (temp.next != null)
+                            Console.Write("->");
+                        temp = temp.next;
+                    }
+                    else
+                    {
+                        Console.Write(temp.data);
+                        temp = temp.next;
+                    }
                 }
+                else break;
+            }
         }
+    }
 }
