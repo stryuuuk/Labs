@@ -45,7 +45,24 @@ namespace labbb1
                 Count++;
                 return;
             }
-            
+            if (value <= first.data)
+            {
+                Node temp = first;
+                first = new Node(value, first);
+                first.next = temp;
+                Count++;
+            }
+            else
+            {
+                current = first;
+
+                while (current.next != null && current.next.data < value)
+                    current = current.next;
+
+                newnode.next = current.next;
+                current.next = newnode;
+                Count++;
+            }
         }
 
     }
