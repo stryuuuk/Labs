@@ -110,20 +110,30 @@ namespace labbb1
                 Console.WriteLine("List underflow");
                 return;
             }
-            Node previous = null;
+            Node last = null;
             Node temp = first;
             while (temp != null && temp.data != value)
             {
-                previous = temp;
+                last = temp;
                 temp = temp.next;
             }
-            if (previous != null && temp != null && temp.data == value)
+            if (last == null && temp != null && temp.data == value)
             {
-                previous.next = temp.next;
+                first = first.next;
+                temp = null;
                 Count--;
             }
-            else { Console.WriteLine("Item wasn't found"); }
-
+            else
+            if (last != null && temp != null && temp.data == value)
+            {
+                last.next = temp.next;
+                temp = null;
+                Count--;
+            }
+            else
+            {
+                Console.WriteLine("Item was not found and not deleted");
+            }
         }
     }
 }
