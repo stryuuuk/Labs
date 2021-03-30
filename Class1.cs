@@ -64,6 +64,12 @@ namespace labbb1
                 Count++;
             }
         }
-
-    }
+        public void PrintList()
+        {
+            Node temp = first;
+            Console.WriteLine("Your list: ");
+            for (int i = 1; i <= Count; i++)
+            {
+            }
+        }
 }
