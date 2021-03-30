@@ -135,5 +135,16 @@ namespace labbb1
                 Console.WriteLine("Item was not found and not deleted");
             }
         }
+        public bool Search(int value)
+        {
+            Node temp = first;
+            while (temp != null)
+            {
+                if (temp.data == value) return true;
+                else temp = temp.next;
+            }
+            return false;
+
+        }
     }
 }
