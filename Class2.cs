@@ -4,16 +4,16 @@ using System.Text;
 
 namespace labbb1
 {
-    class Node
+    class Node<T>
     {
-        public int data;
-        public Node next;
+        public T data;
+        public Node<T> next;
 
         public Node()
         {
             next = null;
         }
-        public Node(int d, Node link = null)
+        public Node(T d, Node<T> link = null)
         {
             data = d;
             next = link;

@@ -4,10 +4,10 @@ using System.Text;
 
 namespace labbb1
 {
-    class SortedLinkedList
+    class SortedLinkedList<T> where T : IComparable
     {
         public int Count = 0;
-        public Node first;
+        public Node<T> first;
 
         public SortedLinkedList()
         {
@@ -23,17 +23,21 @@ namespace labbb1
         public bool IsFull()
         {
             bool result = false;
-            Node tryy = new Node();
+            Node<T> tryy = new Node<T>();
             if (tryy == null)
                 return result = true;
             else
                 return result;
 
         }
-        public void Add(int value)
+        public int CompareTo(SortedLinkedList<T> other)
         {
-            Node newnode = new Node(value);
-            Node current;
+            return this.first.data.CompareTo(other.first.data);
+        }
+        public void Add(T value)
+        {
+            Node<T> newnode = new Node<T>(value);
+            Node<T> current;
             if (IsFull())
             {
                 Console.WriteLine("List overflow\n");
@@ -41,14 +45,14 @@ namespace labbb1
             }
             if (first == null)
             {
-                first = new Node(value, first);
+                first = new Node<T>(value, first);
                 Count++;
                 return;
             }
-            if (value <= first.data)
+            if (value.CompareTo(first.data) <= 0)
             {
-                Node temp = first;
-                first = new Node(value, first);
+                Node<T> temp = first;
+                first = new Node<T>(value, first);
                 first.next = temp;
                 Count++;
             }
@@ -56,7 +60,7 @@ namespace labbb1
             {
                 current = first;
 
-                while (current.next != null && current.next.data < value)
+                while (current.next != null && current.next.data.CompareTo(value) < 0)
                     current = current.next;
 
                 newnode.next = current.next;
@@ -66,7 +70,7 @@ namespace labbb1
         }
         public void PrintList()
         {
-            Node temp = first;
+            Node<T> temp = first;
             Console.WriteLine("\nYour list: ");
             if (Count == 0) Console.WriteLine("null");
             for (int i = 1; i <= Count; i++)
@@ -103,28 +107,28 @@ namespace labbb1
                 else break;
             }
         }
-        public void Delete(int value)
+        public void Delete(T value)
         {
             if (IsEmpty())
             {
                 Console.WriteLine("List underflow");
                 return;
             }
-            Node last = null;
-            Node temp = first;
-            while (temp != null && temp.data != value)
+            Node<T> last = null;
+            Node<T> temp = first;
+            while (temp != null && temp.data.CompareTo(value) != 0)
             {
                 last = temp;
                 temp = temp.next;
             }
-            if (last == null && temp != null && temp.data == value)
+            if (last == null && temp != null && temp.data.CompareTo(value) == 0)
             {
                 first = first.next;
                 temp = null;
                 Count--;
             }
             else
-            if (last != null && temp != null && temp.data == value)
+            if (last != null && temp != null && temp.data.CompareTo(value) == 0)
             {
                 last.next = temp.next;
                 temp = null;
@@ -137,10 +141,10 @@ namespace labbb1
         }
         public bool Search(int value)
         {
-            Node temp = first;
+            Node<T> temp = first;
             while (temp != null)
             {
-                if (temp.data == value) return true;
+                if (temp.data.CompareTo(value) == 0) return true;
                 else temp = temp.next;
             }
             return false;
