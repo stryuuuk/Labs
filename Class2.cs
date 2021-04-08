@@ -4,8 +4,7 @@ using System.Text;
 
 namespace lab2
 {
-    class BBST
+    class Node
     {
-
     }
 }
