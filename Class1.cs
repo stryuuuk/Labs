@@ -19,5 +19,14 @@ namespace lab2
             if (Count == 0) return true;
             else return false;
         }
+        public bool IsFull()
+        {
+            bool result = false;
+            Node tryy = new Node();
+            if (tryy == null)
+                return result = true;
+            else
+                return result;
+        }
     }
 }

@@ -9,6 +9,10 @@ namespace lab2
         public int Data;
         public Node left, right;
 
+        public Node()
+        {
+            left = right = null;
+        }
         public Node(int data)
         {
             Data = data;
