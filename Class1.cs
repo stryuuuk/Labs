@@ -13,5 +13,7 @@ namespace lab2
             Count = 0;
             root = null;
         }
+        public int Size { get { return Count; } }
+
     }
 }
