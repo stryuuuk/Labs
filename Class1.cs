@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace labbb1
+namespace lab2
 {
-    class Class1
+    class BBST
     {
     }
 }
