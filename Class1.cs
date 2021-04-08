@@ -14,6 +14,10 @@ namespace lab2
             root = null;
         }
         public int Size { get { return Count; } }
-
+        public bool IsEmpty()
+        {
+            if (Count == 0) return true;
+            else return false;
+        }
     }
 }
