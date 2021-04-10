@@ -32,6 +32,22 @@ namespace lab2
             int factor = l - r;
             return factor;
         }
+        public Node Balance(Node node)
+        {
+            if (BalanceF(node) > 1)
+            {
+                if (BalanceF(node.left) > 0)
+                    node = RotateLL(node);
+                else RotateLR(node);
+            }
+            if (BalanceF(node) < -1)
+            {
+                if (BalanceF(node.right) > 0)
+                    node = RotateRL(node);
+                else RotateRR(node);
+            }
+            return node;
+        }
         public int Size { get { return Count; } }
         public bool IsEmpty()
         {
