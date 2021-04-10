@@ -55,7 +55,6 @@ namespace lab2
             temp.left = node;
             return temp;
         }
-
         private Node RotateLL(Node node)
         {
 
@@ -63,6 +62,15 @@ namespace lab2
             node.left = temp.right;
             temp.right = node;
             return temp;
+
+
+        }
+        private Node RotateLR(Node node)
+        {
+
+            Node temp = node.left;
+            node.left = RotateRR(temp);
+            return RotateLL(node);
 
 
         }
