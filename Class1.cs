@@ -118,6 +118,63 @@ namespace lab2
             }
             return root;
         }
+        public Node Delete(ref Node root,int v)
+        {
+            if (root == null)
+            {
+                return null;
+            }
+            else if (v < root.Data)
+            {
+                root.left = Delete(ref root.left, v);
+                if (BalanceF(root) == -2)
+                {
+                    if (BalanceF(root.right) <= 0)
+                    {
+                        root = RotateRR(root);
+                    }
+                    else
+                    {
+                        root = RotateRL(root);
+                    }
+                }
+            }
+            else if (v > root.Data)
+            {
+                root.right = Delete(ref root.right, v);
+                if (BalanceF(root) == 2)
+                {
+                    if (BalanceF(root.left) >= 0)
+                    {
+                        root = RotateLL(root);
+                    }
+                    else
+                    {
+                        root = RotateLR(root);
+                    }
+                }
+            }
+            else
+            {
+                if (root.right == null)
+                {
+                    return root.left;
+                }
+                else
+                {
+                    Node temp = root.right;
+                    while (temp.left != null)
+                    {
+                        temp = temp.left;
+                    }
+                    root.Data = temp.Data;
+                    root.right = Delete(ref root.right, root.Data);
+                    Balance(root);
+                }
+            }
+            Count--;
+            return root;
+        }
 
 
     }
