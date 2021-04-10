@@ -25,6 +25,13 @@ namespace lab2
             }
             return height;
         }
+        public int BalanceF(Node node)
+        {
+            int l = Height(node.left);
+            int r = Height(node.right);
+            int factor = l - r;
+            return factor;
+        }
         public int Size { get { return Count; } }
         public bool IsEmpty()
         {
