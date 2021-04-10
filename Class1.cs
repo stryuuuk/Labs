@@ -74,6 +74,15 @@ namespace lab2
 
 
         }
+        private Node RotateRL(Node node)
+        {
+
+            Node temp = node.right;
+            node.right = RotateLL(temp);
+            return RotateRR(node);
+
+
+        }
         public int Size { get { return Count; } }
         public bool IsEmpty()
         {
