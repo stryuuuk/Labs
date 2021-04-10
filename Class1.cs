@@ -13,6 +13,18 @@ namespace lab2
             Count = 0;
             root = null;
         }
+        private int Height(Node current)
+        {
+            int height = 0;
+            if (current != null)
+            {
+                int l = Height(current.left);
+                int r = Height(current.right);
+                int m = Math.Max(l, r);
+                height = m + 1;
+            }
+            return height;
+        }
         public int Size { get { return Count; } }
         public bool IsEmpty()
         {
@@ -28,5 +40,10 @@ namespace lab2
             else
                 return result;
         }
+        
+        
+        
     }
+    
+
 }

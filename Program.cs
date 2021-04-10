@@ -6,7 +6,10 @@ namespace lab2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            BBST tree = new BBST();
+            int[] m = new int[] { 5,3,7,2,1};
+            for(int i = 0; i < m.Length; i++) { tree.Add(ref tree.root, m[i]); }
+            
         }
     }
 }
