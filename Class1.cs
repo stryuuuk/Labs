@@ -98,10 +98,29 @@ namespace lab2
             else
                 return result;
         }
-        
-        
-        
+        public Node Add(ref Node root, int v)
+        {
+
+            if (root == null)
+            {
+                Count++;
+                return root = new Node(v);
+            }
+            else if (v < root.Data)
+            {
+                root.left = Add(ref root.left, v);
+                root = Balance(root);
+            }
+            else if (v > root.Data)
+            {
+                root.right = Add(ref root.right, v);
+                root = Balance(root);
+            }
+            return root;
+        }
+
+
     }
-    
+
 
 }
