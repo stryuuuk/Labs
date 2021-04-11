@@ -208,6 +208,15 @@ namespace lab2
                 PreOrderPrint(root.right);
             }
         }
+        public void PostOrderPrint(Node root)
+        {
+            if (root != null)
+            {
+                PostOrderPrint(root.left);
+                PostOrderPrint(root.right);
+                Console.WriteLine(root.Data);
+            }
+        }
     }
 
 
