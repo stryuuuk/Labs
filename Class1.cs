@@ -190,7 +190,15 @@ namespace lab2
             }
             else return Search(ref root.right, v);
         }
-
+        public void InorderPrint(Node root)
+        {
+            if (root != null)
+            {
+                InorderPrint(root.left);
+                Console.Write(root.Data);
+                InorderPrint(root.right);
+            }
+        }
     }
 
 
