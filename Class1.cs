@@ -175,7 +175,21 @@ namespace lab2
             Count--;
             return root;
         }
-
+        public Node Search(ref Node root, int v)
+        {
+            if (root == null)
+            {
+                Console.WriteLine("There isn't such node in the tree.");
+                return null;
+            }
+            if (v == root.Data)
+                return root;
+            if (v < root.Data)
+            {
+                return Search(ref root.left, v);
+            }
+            else return Search(ref root.right, v);
+        }
 
     }
 

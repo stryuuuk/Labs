@@ -9,7 +9,7 @@ namespace lab2
             BBST tree = new BBST();
             int[] m = new int[] { 5,3,7,2,1};
             for(int i = 0; i < m.Length; i++) { tree.Add(ref tree.root, m[i]); }
-            tree.Delete(ref tree.root, 7);
+            Node k = tree.Search(ref tree.root, 10);
         }
     }
 }
