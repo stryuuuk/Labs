@@ -106,7 +106,7 @@ namespace lab2
                 Count++;
                 return root = new Node(v);
             }
-            else if (v < root.Data)
+            else if (v <= root.Data)
             {
                 root.left = Add(ref root.left, v);
                 root = Balance(root);
@@ -120,6 +120,7 @@ namespace lab2
         }
         public Node Delete(ref Node root,int v)
         {
+            Node parent;
             if (root == null)
             {
                 return null;
@@ -156,25 +157,59 @@ namespace lab2
             }
             else
             {
-                if (root.right == null)
+                if (root.right != null)
                 {
-                    return root.left;
+                    
+                    parent = root.right;
+                    while (parent.left != null)
+                    {
+                        parent = parent.left;
+                    }
+                    root.Data = parent.Data;
+                    root.right = Delete(ref root.right, parent.Data);
+                    if (BalanceF(root) == 2)
+                    {
+                        if (BalanceF(root.left) >= 0)
+                        {
+                            root = RotateLL(root);
+                        }
+                        else { root = RotateLR(root); }
+                    }
                 }
                 else
-                {
-                    Node temp = root.right;
-                    while (temp.left != null)
-                    {
-                        temp = temp.left;
-                    }
-                    root.Data = temp.Data;
-                    root.right = Delete(ref root.right, root.Data);
-                    Balance(root);
+                {   
+                    return root.left;
                 }
             }
             Count--;
             return root;
         }
+        public BBST DeleteDup(ref Node root)
+        {
+            if (root != null)
+            {
+                Node temp = root;
+                Node temp2 = root;
+                while (temp != null)
+                {
+                    temp = Searchh(ref root.left, root.Data);
+                    if (temp != null)
+                        Delete(ref root, root.Data);
+                }
+                while (temp2 != null) 
+                { 
+                    temp2 = Searchh(ref root.right, root.Data);
+                    if (temp2 != null)
+                       Delete(ref root, root.Data);
+                }
+                DeleteDup(ref root.left);
+                DeleteDup(ref root.right);
+                return this;
+            }
+            else
+            return null;
+        }       
+        
         public Node Search(ref Node root, int v)
         {
             if (root == null)
@@ -190,12 +225,26 @@ namespace lab2
             }
             else return Search(ref root.right, v);
         }
+        private Node Searchh(ref Node root, int v)
+        {
+            if (root == null)
+            {
+                return null;
+            }
+            if (v == root.Data)
+                return root;
+            if (v < root.Data)
+            {
+                return Searchh(ref root.left, v);
+            }
+            else return Searchh(ref root.right, v);
+        }
         public void InOrderPrint(Node root)
         {
             if (root != null)
             {
                 InOrderPrint(root.left);
-                Console.Write(root.Data);
+                Console.Write(" "+root.Data);
                 InOrderPrint(root.right);
             }
         }
@@ -203,7 +252,7 @@ namespace lab2
         {
             if (root != null)
             {
-                Console.WriteLine(root.Data);
+                Console.WriteLine(" " + root.Data);
                 PreOrderPrint(root.left);
                 PreOrderPrint(root.right);
             }
@@ -214,7 +263,7 @@ namespace lab2
             {
                 PostOrderPrint(root.left);
                 PostOrderPrint(root.right);
-                Console.WriteLine(root.Data);
+                Console.WriteLine(" " + root.Data);
             }
         }
     }
