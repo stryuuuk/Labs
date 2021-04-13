@@ -4,16 +4,16 @@ using System.Text;
 
 namespace lab2
 {
-    class Node
+    class Node<T>
     {
-        public int Data;
-        public Node left, right;
+        public T Data;
+        public Node<T> left, right;
 
         public Node()
         {
             left = right = null;
         }
-        public Node(int data)
+        public Node(T data)
         {
             Data = data;
             left = right = null;

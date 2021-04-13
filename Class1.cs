@@ -4,16 +4,16 @@ using System.Text;
 
 namespace lab2
 {
-    class BBST
+    class BBST<T> where T:IComparable
     {
         public int Count;
-        public Node root;
+        public Node<T> root;
         public BBST()
         {
             Count = 0;
             root = null;
         }
-        private int Height(Node current)
+        private int Height(Node<T> current)
         {
             int height = 0;
             if (current != null)
@@ -25,14 +25,14 @@ namespace lab2
             }
             return height;
         }
-        public int BalanceF(Node node)
+        public int BalanceF(Node<T> node)
         {
             int l = Height(node.left);
             int r = Height(node.right);
             int factor = l - r;
             return factor;
         }
-        public Node Balance(Node node)
+        public Node<T> Balance(Node<T> node)
         {
             if (BalanceF(node) > 1)
             {
@@ -48,36 +48,36 @@ namespace lab2
             }
             return node;
         }
-        private Node RotateRR(Node node)
+        private Node<T> RotateRR(Node<T> node)
         {
-            Node temp = node.right;
+            Node<T> temp = node.right;
             node.right = temp.left;
             temp.left = node;
             return temp;
         }
-        private Node RotateLL(Node node)
+        private Node<T> RotateLL(Node<T> node)
         {
 
-            Node temp = node.left;
+            Node<T> temp = node.left;
             node.left = temp.right;
             temp.right = node;
             return temp;
 
 
         }
-        private Node RotateLR(Node node)
+        private Node<T> RotateLR(Node<T> node)
         {
 
-            Node temp = node.left;
+            Node<T> temp = node.left;
             node.left = RotateRR(temp);
             return RotateLL(node);
 
 
         }
-        private Node RotateRL(Node node)
+        private Node<T> RotateRL(Node<T> node)
         {
 
-            Node temp = node.right;
+            Node<T> temp = node.right;
             node.right = RotateLL(temp);
             return RotateRR(node);
 
@@ -92,40 +92,40 @@ namespace lab2
         public bool IsFull()
         {
             bool result = false;
-            Node tryy = new Node();
+            Node<T> tryy = new Node<T>();
             if (tryy == null)
                 return result = true;
             else
                 return result;
         }
-        public Node Add(ref Node root, int v)
+        public Node<T> Add(ref Node<T> root, T v)
         {
 
             if (root == null)
             {
                 Count++;
-                return root = new Node(v);
+                return root = new Node<T>(v);
             }
-            else if (v <= root.Data)
+            else if (v.CompareTo(root.Data) <= 0)
             {
                 root.left = Add(ref root.left, v);
                 root = Balance(root);
             }
-            else if (v > root.Data)
+            else if (v.CompareTo(root.Data) > 0)
             {
                 root.right = Add(ref root.right, v);
                 root = Balance(root);
             }
             return root;
         }
-        public Node Delete(ref Node root,int v)
+        public Node<T> Delete(ref Node<T> root,T v)
         {
-            Node parent;
+            Node<T> parent;
             if (root == null)
             {
                 return null;
             }
-            else if (v < root.Data)
+            else if (v.CompareTo(root.Data) < 0)
             {
                 root.left = Delete(ref root.left, v);
                 if (BalanceF(root) == -2)
@@ -140,7 +140,7 @@ namespace lab2
                     }
                 }
             }
-            else if (v > root.Data)
+            else if (v.CompareTo(root.Data) > 0)
             {
                 root.right = Delete(ref root.right, v);
                 if (BalanceF(root) == 2)
@@ -184,12 +184,12 @@ namespace lab2
             Count--;
             return root;
         }
-        public BBST DeleteDup(ref Node root)
+        public BBST<T> DeleteDup(ref Node<T> root)
         {
             if (root != null)
             {
-                Node temp = root;
-                Node temp2 = root;
+                Node<T> temp = root;
+                Node<T> temp2 = root;
                 while (temp != null)
                 {
                     temp = Searchh(ref root.left, root.Data);
@@ -210,36 +210,36 @@ namespace lab2
             return null;
         }       
         
-        public Node Search(ref Node root, int v)
+        public Node<T> Search(ref Node<T> root, T v)
         {
             if (root == null)
             {
                 Console.WriteLine("There isn't such node in the tree.");
                 return null;
             }
-            if (v == root.Data)
+            if (v.CompareTo(root.Data) == 0)
                 return root;
-            if (v < root.Data)
+            if (v.CompareTo(root.Data)<0)
             {
                 return Search(ref root.left, v);
             }
             else return Search(ref root.right, v);
         }
-        private Node Searchh(ref Node root, int v)
+        private Node<T> Searchh(ref Node<T> root, T v)
         {
             if (root == null)
             {
                 return null;
             }
-            if (v == root.Data)
+            if (v.CompareTo(root.Data) == 0)
                 return root;
-            if (v < root.Data)
+            if (v.CompareTo(root.Data) < 0)
             {
                 return Searchh(ref root.left, v);
             }
             else return Searchh(ref root.right, v);
         }
-        public void InOrderPrint(Node root)
+        public void InOrderPrint(Node<T> root)
         {
             if (root != null)
             {
@@ -248,7 +248,7 @@ namespace lab2
                 InOrderPrint(root.right);
             }
         }
-        public void PreOrderPrint(Node root)
+        public void PreOrderPrint(Node<T> root)
         {
             if (root != null)
             {
@@ -257,7 +257,7 @@ namespace lab2
                 PreOrderPrint(root.right);
             }
         }
-        public void PostOrderPrint(Node root)
+        public void PostOrderPrint(Node<T> root)
         {
             if (root != null)
             {
