@@ -2,9 +2,21 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace labbb1
+namespace lab2
 {
-    class Class2
+    class Node<T>
     {
+        public T Data;
+        public Node<T> left, right;
+
+        public Node()
+        {
+            left = right = null;
+        }
+        public Node(T data)
+        {
+            Data = data;
+            left = right = null;
+        }
     }
 }
