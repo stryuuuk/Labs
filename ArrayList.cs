@@ -28,6 +28,13 @@ namespace lab3
         {
             return Last + 1;
         }
+        public T this[int index]
+        {
+            get
+            {
+                return Array[index];
+            }
+        }
         
     }
 }
