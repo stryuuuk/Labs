@@ -35,6 +35,12 @@ namespace lab3
                 return Array[index];
             }
         }
+        public void Add(T value)
+        {
+            if (IsFull())
+                Extend();
+            Array[++Last] = value;
+        }
         
     }
 }
