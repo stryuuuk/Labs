@@ -15,6 +15,11 @@ namespace lab3
             Last = -1;
             Array = new T[max];
         }
+        private bool isEmpty()
+        {
+            return (Last == -1);
+        }
+
         
     }
 }
