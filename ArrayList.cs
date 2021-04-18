@@ -24,6 +24,10 @@ namespace lab3
         {
             return (Last == Max - 1);
         }
+        public int Length()
+        {
+            return Last + 1;
+        }
         
     }
 }
