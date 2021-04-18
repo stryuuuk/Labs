@@ -20,6 +20,10 @@ namespace lab3
             return (Last == -1);
         }
 
+        private bool IsFull()
+        {
+            return (Last == Max - 1);
+        }
         
     }
 }
