@@ -51,6 +51,16 @@ namespace lab3
             }
             return Array = temp;
         }
+        public void PrintA()
+        {
+            T[] temp = Array;
+            temp.HeapSort();
+            Console.WriteLine("Your List in ascending order: \n");
+            for (int i = 0; i < Last + 1; i++)
+            {
+                Console.Write(temp[i] + " ");
+            }
+        }
         
     }
 }
