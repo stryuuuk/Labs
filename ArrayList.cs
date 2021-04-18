@@ -41,6 +41,16 @@ namespace lab3
                 Extend();
             Array[++Last] = value;
         }
+        private T[] Extend()
+        {
+            T[] temp = new T[Max * 2];
+            Max *= 2;
+            for (int i = 0; i < Array.Length; i++)
+            {
+                temp[i] = Array[i];
+            }
+            return Array = temp;
+        }
         
     }
 }
