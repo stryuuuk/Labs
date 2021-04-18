@@ -9,6 +9,12 @@ namespace lab3
         public int Max;        
         public int Last;        
         public T[] Array;
+        public ArrayList(int max)
+        {
+            Max = max;
+            Last = -1;
+            Array = new T[max];
+        }
         
     }
 }
