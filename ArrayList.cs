@@ -53,7 +53,7 @@ namespace lab3
         }
         public void PrintA()
         {
-            T[] temp = Array;
+            ArrayList<T> temp = this;
             temp.HeapSort();
             Console.WriteLine("Your List in ascending order: \n");
             for (int i = 0; i < Last + 1; i++)
@@ -63,14 +63,55 @@ namespace lab3
         }
         public void PrintD()
         {
-            T[] temp = Array;
+            ArrayList<T> temp = this;
             temp.HeapSort();
             Console.WriteLine("Your List in descending order: \n");
             for (int i = Last; i >= 0; i--)
             {
-                Console.Write(temp[i] + " ");
+                Console.Write(temp.Array[i] + " ");
             }
         }
-        
+        public T[] HeapSort()
+        {
+            int n = Length();
+            MaxHeap();
+            for(int i = n; i >= 1; i--)
+            {
+                T temp = this.Array[1];
+                this.Array[1] = this.Array[i];
+                this.Array[i] = temp;
+                n--;
+                Heapify(this.Array, 1);
+            }
+            return this.Array;
+        }
+        private void MaxHeap()
+        {
+            int n = Length();
+            for(int i = n / 2; i >= 1; i--)
+            {
+                Heapify(this.Array, i);
+            }
+        }
+        private void Heapify(T[] arr,int i)
+        {
+            int n = Length();
+            int max;
+            int left = 2 * i;
+            int right = 2 * i - 1;
+            if (left <= n && arr[left].CompareTo(arr[i]) > 0)
+                max = left;
+            else
+                max = i;
+            if (right <= n && arr[right].CompareTo(arr[max]) > 0)
+                max = right;
+            if (max != i)
+            {
+                T temp = arr[max];
+                arr[max] = arr[i];
+                arr[i] = temp;
+            }
+            Heapify(arr, max);
+        }
     }
 }
