@@ -54,64 +54,61 @@ namespace lab3
         public void PrintA()
         {
             ArrayList<T> temp = this;
-            temp.HeapSort();
+            temp.HeapSortMax();
             Console.WriteLine("Your List in ascending order: \n");
             for (int i = 0; i < Last + 1; i++)
             {
                 Console.Write(temp[i] + " ");
             }
+            Console.WriteLine("\n");
         }
         public void PrintD()
         {
             ArrayList<T> temp = this;
-            temp.HeapSort();
+            temp.HeapSortMin();
             Console.WriteLine("Your List in descending order: \n");
-            for (int i = Last; i >= 0; i--)
+            for (int i = 0; i < Last + 1; i++)
             {
-                Console.Write(temp.Array[i] + " ");
+                Console.Write(temp[i] + " ");
             }
+            Console.WriteLine("\n");
         }
-        public T[] HeapSort()
+        public void HeapSortMax()
         {
             int n = Length();
-            MaxHeap();
-            for(int i = n; i >= 1; i--)
+            MaxHeap(n);
+            for (int i = n-1; i >= 0; i--)
             {
-                T temp = this.Array[1];
-                this.Array[1] = this.Array[i];
+                T temp = this.Array[0];
+                this.Array[0] = this.Array[i];
                 this.Array[i] = temp;
-                n--;
-                Heapify(this.Array, 1);
+                HeapifyMax(this.Array, i,0);
             }
-            return this.Array;
         }
-        private void MaxHeap()
+        private void MaxHeap(int n)
         {
-            int n = Length();
-            for(int i = n / 2; i >= 1; i--)
+            for (int i = (n / 2) - 1; i >= 0; i--)
             {
-                Heapify(this.Array, i);
+                HeapifyMax(this.Array, n, i);
             }
         }
-        private void Heapify(T[] arr,int i)
+        private void HeapifyMax(T[] arr,int n,int i)
         {
-            int n = Length();
-            int max;
-            int left = 2 * i;
-            int right = 2 * i - 1;
-            if (left <= n && arr[left].CompareTo(arr[i]) > 0)
+            int max = i;
+            int left = (2 * i)+1;
+            int right = (2 * i)+ 2;
+            if (left < n && arr[left].CompareTo(arr[max]) > 0)
                 max = left;
-            else
-                max = i;
-            if (right <= n && arr[right].CompareTo(arr[max]) > 0)
+            if (right < n && arr[right].CompareTo(arr[max]) > 0)
                 max = right;
             if (max != i)
             {
-                T temp = arr[max];
-                arr[max] = arr[i];
-                arr[i] = temp;
+                T temp = arr[i];
+                arr[i] = arr[max];
+                arr[max] = temp;
+                HeapifyMax(arr, n, max);
             }
-            Heapify(arr, max);
         }
+        
     }
 }
