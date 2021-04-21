@@ -109,6 +109,41 @@ namespace lab3
                 HeapifyMax(arr, n, max);
             }
         }
-        
+        public void HeapSortMin()
+        {
+            int n = Length();
+            MinHeap(n);
+            for (int i = n - 1; i >= 0; i--)
+            {
+                T temp = this.Array[0];
+                this.Array[0] = this.Array[i];
+                this.Array[i] = temp;
+                HeapifyMin(this.Array, i, 0);
+            }
+        }
+        private void MinHeap(int n)
+        {
+            for (int i = (n / 2) - 1; i >= 0; i--)
+            {
+                HeapifyMin(this.Array, n, i);
+            }
+        }
+        private void HeapifyMin(T[] arr, int n, int i)
+        {
+            int min = i;
+            int left = (2 * i) + 1;
+            int right = (2 * i) + 2;
+            if (left < n && arr[left].CompareTo(arr[min]) < 0)
+                min = left;
+            if (right < n && arr[right].CompareTo(arr[min]) < 0)
+                min = right;
+            if (min != i)
+            {
+                T temp = arr[i];
+                arr[i] = arr[min];
+                arr[min] = temp;
+                HeapifyMin(arr, n, min);
+            }
+        }
     }
 }
