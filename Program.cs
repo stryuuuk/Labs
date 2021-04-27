@@ -6,7 +6,8 @@ namespace lab4
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("gbcg!");
+            WeightedGraph graph = new WeightedGraph(3);
+            graph.Print();
         }
     }
 }

@@ -7,17 +7,42 @@ namespace lab4
     class WeightedGraph
     {
         private List<Vertice> Vertices;
-        private Vertice[,] AdjMatrix;
+        private Edge[,] AdjMatrix;
         private int Size;
-        private WeightedGraph(int size)
+        public WeightedGraph(int size)
         {
             Size = size;
-            AdjMatrix = new Vertice[size, size];
+            AdjMatrix = new Edge[size, size];
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    if (j != i)
+                    {
+                        if (AdjMatrix[i, j] == null && AdjMatrix[j, i] == null)
+                        {
+                            Console.WriteLine($"Write the weight of the edge V{i}-V{j}");
+                            AdjMatrix[i, j] = AdjMatrix[j, i] = new Edge(new Vertice(i), new Vertice(j), Convert.ToInt32(Console.ReadLine()));
+                        }
+                    }
+                    else
+                        AdjMatrix[i, j] = new Edge(new Vertice(i), new Vertice(j), 0);
+                }
+            }
         }
-        public void CreateWeightedGraph(int size)
+        
+        public void Print()
         {
-            WeightedGraph<T> graph = new WeightedGraph<T>(size);
+            Console.WriteLine("Your graph:");
+            for (int i = 0; i < Size; i++)
+            {
+                for (int j = 0; j < Size; j++)
+                {
+                    Console.Write(AdjMatrix[i, j].Weight+" ");
+                }
+                Console.WriteLine();
+            }
         }
-
+        //public void AddEdge(int value,Ver)
     }
 }
