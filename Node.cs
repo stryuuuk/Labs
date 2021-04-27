@@ -4,7 +4,7 @@ using System.Text;
 
 namespace lab4
 {
-    class Node
+    class Vertice
     {
     }
 }
