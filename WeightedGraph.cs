@@ -4,18 +4,20 @@ using System.Text;
 
 namespace lab4
 {
-    class WeightedGraph<T> where T:IComparable<T>
+    class WeightedGraph
     {
-        private List<Vertice<T>> Vertices;
-        private int[,] AdjMatrix;
+        private List<Vertice> Vertices;
+        private Vertice[,] AdjMatrix;
         private int Size;
         private WeightedGraph(int size)
         {
-
+            Size = size;
+            AdjMatrix = new Vertice[size, size];
         }
         public void CreateWeightedGraph(int size)
         {
             WeightedGraph<T> graph = new WeightedGraph<T>(size);
         }
+
     }
 }
