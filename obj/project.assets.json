@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\study\\NURE\\2nd semester\\algorithms\\lab\\lab4\\lab4.csproj",
-      "projectName": "lab4",
-      "projectPath": "F:\\study\\NURE\\2nd semester\\algorithms\\lab\\lab4\\lab4.csproj",
+      "projectUniqueName": "F:\\study\\NURE\\2nd semester\\algorithms\\lab\\labb4\\labbb1.csproj",
+      "projectName": "labbb1",
+      "projectPath": "F:\\study\\NURE\\2nd semester\\algorithms\\lab\\labb4\\labbb1.csproj",
       "packagesPath": "C:\\Users\\Даша\\.nuget\\packages\\",
-      "outputPath": "F:\\study\\NURE\\2nd semester\\algorithms\\lab\\lab4\\obj\\",
+      "outputPath": "F:\\study\\NURE\\2nd semester\\algorithms\\lab\\labb4\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
