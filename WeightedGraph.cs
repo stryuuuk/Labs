@@ -43,6 +43,6 @@ namespace lab4
                 Console.WriteLine();
             }
         }
-        //public void AddEdge(int value,Ver)
+        
     }
 }
