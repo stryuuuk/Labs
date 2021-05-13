@@ -65,6 +65,14 @@ namespace lab4
                 }
             }
         }
+        private bool Find(int[] m, int index)
+        {
+            for (int i = 0; i < m.Length; i++)
+            {
+                if (m[i] == index) return true;
+            }
+            return false;
+        }
         
     }
 }
