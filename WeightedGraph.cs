@@ -73,6 +73,44 @@ namespace lab4
             }
             return false;
         }
+        public void Kruskal()
+        {
+            Sort(edges);
+            List<Edge> minspantree = new List<Edge>();
+            int[] used = new int[EdgeCount * 2];
+            int count = 0;
+            for (int i = 0; i < EdgeCount; i++)
+            {
+                if (!(Find(used, edges[i].First.index) == true && Find(used, edges[i].Second.index) == true))
+                {
+                    minspantree.Add(edges[i]);
+                    used[count] = edges[i].First.index;
+                    count++;
+                    used[count] = edges[i].Second.index;
+                    count++;
+                }
+            }
+            int sum = 0;
+            Console.WriteLine("Minimum spanning tree: ");
+            for (int i = 0; i < minspantree.Count; i++)
+            {
+                Console.Write($"{minspantree[i].Weight}");
+                sum += minspantree[i].Weight;
+                if (i != minspantree.Count - 1)
+                    Console.Write(" + ");
+                else
+                    Console.Write(" = " + sum);
+            }
+            Console.WriteLine();
+            for (int i = 0; i < minspantree.Count; i++)
+            {
+                Console.Write($"V{minspantree[i].First.index}-V{minspantree[i].Second.index}");
+                if (i != minspantree.Count - 1)
+                    Console.Write(" + ");
+                else
+                    Console.Write(" = " + sum);
+            }
+        }
         
     }
 }
