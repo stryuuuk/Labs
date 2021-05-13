@@ -37,7 +37,34 @@ namespace lab4
                 }
             }
         }
-        
+
+        public void Print()
+        {
+            Console.WriteLine("Your graph:");
+            for (int i = 0; i < Size; i++)
+            {
+                for (int j = 0; j < Size; j++)
+                {
+                    Console.Write(AdjMatrix[i, j].Weight + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+        private void Sort(Edge[] e)
+        {
+            for (int write = 0; write < EdgeCount; write++)
+            {
+                for (int sort = 0; sort < EdgeCount - 1; sort++)
+                {
+                    if (e[sort].Weight > e[sort + 1].Weight)
+                    {
+                        Edge temp = e[sort + 1];
+                        e[sort + 1] = e[sort];
+                        e[sort] = temp;
+                    }
+                }
+            }
+        }
         
     }
 }
