@@ -111,6 +111,54 @@ namespace lab4
                     Console.Write(" = " + sum);
             }
         }
-        
+        public void Dijkstra(int start, int destination)
+        {
+            if (destination >= Size)
+            {
+                Console.WriteLine("Index is out of range.");
+                return;
+            }
+            int sum = 0;
+            int[] unvisited = new int[Size];
+            int current = start;
+            string result = "V" + start;
+            for (int i = 0; i < Size; i++)
+            {
+                unvisited[i] = i;
+            }
+            while (current != destination)
+            {
+                int min = 9999;
+                int temp = current;
+                for (int i = 1; i < Size; i++)
+                {
+                    if (unvisited[i] != -1 && AdjMatrix[current, i].Weight < min && AdjMatrix[current, i].Weight != 0)
+                    {
+                        min = AdjMatrix[current, i].Weight;
+                        if (current == AdjMatrix[current, i].Second.index)
+                            temp = AdjMatrix[current, i].First.index;
+                        else
+                            temp = AdjMatrix[current, i].Second.index;
+                    }
+                    else if (unvisited[i] != -1 && AdjMatrix[current, i].Weight == min && AdjMatrix[current, i].Weight != 0)
+                    {
+                        if (AdjMatrix[current, i].Second.index == destination)
+                        {
+                            min = AdjMatrix[current, i].Weight;
+                            temp = destination;
+                        }
+                    }
+                    if (i == Size - 1)
+                    {
+                        unvisited[current] = -1;
+                        current = temp;
+                    }
+                }
+                result += $" ({min}) V" + current;
+                sum += min;
+            }
+            Console.WriteLine($"The shortest path between V{start} and V{destination}:");
+            Console.WriteLine(result + " = " + sum);
+        }
     }
 }
