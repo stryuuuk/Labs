@@ -6,8 +6,10 @@ namespace lab4
     {
         static void Main(string[] args)
         {
-            WeightedGraph graph = new WeightedGraph(3);
+            WeightedGraph graph = new WeightedGraph(5);
             graph.Print();
+            //graph.Kruskal();
+            graph.Dijkstra(0, 4);
         }
     }
 }

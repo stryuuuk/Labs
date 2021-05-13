@@ -9,22 +9,25 @@
   },
   "packageFolders": {
     "C:\\Users\\Даша\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\study\\NURE\\2nd semester\\algorithms\\lab\\labb4\\labbb1.csproj",
-      "projectName": "labbb1",
-      "projectPath": "F:\\study\\NURE\\2nd semester\\algorithms\\lab\\labb4\\labbb1.csproj",
+      "projectUniqueName": "F:\\study\\NURE\\2nd semester\\algorithms\\lab\\labb4\\lab4.csproj",
+      "projectName": "lab4",
+      "projectPath": "F:\\study\\NURE\\2nd semester\\algorithms\\lab\\labb4\\lab4.csproj",
       "packagesPath": "C:\\Users\\Даша\\.nuget\\packages\\",
       "outputPath": "F:\\study\\NURE\\2nd semester\\algorithms\\lab\\labb4\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
         "C:\\Users\\Даша\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -65,7 +68,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

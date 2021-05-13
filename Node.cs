@@ -6,7 +6,7 @@ namespace lab4
 {
     class Vertice
     {
-        private int index;
+        public int index { private set; get; }
         public Vertice(int index)
         {
             this.index = index;
