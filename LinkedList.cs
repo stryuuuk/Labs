@@ -8,5 +8,10 @@ namespace lab5
     {
         public Node first;
         public int Count { get; private set; }
+        public LinkedList()
+        {
+            first = null;
+            Count = 0;
+        }
     }
 }
