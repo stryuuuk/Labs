@@ -31,5 +31,22 @@ namespace lab5
             }
             if (print == null) Console.WriteLine("null");
         }
+        public int this[int value]
+        {
+            get
+            {
+                int index = 0;
+                Node temp = first;
+                while (temp.next != null && temp.data != value)
+                {
+                    index++;
+                    temp = temp.next;
+                }
+                if (temp.data == value)
+                    return index;
+                else return -1000;
+
+            }
+        }
     }
 }
