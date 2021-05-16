@@ -48,5 +48,20 @@ namespace lab5
 
             }
         }
+        public void Add(int data)
+        {
+            if (first == null)
+            {
+                first = new Node(data);
+                Count++;
+            }
+            else
+            {
+                Node add = new Node(data, first);
+                add.next = first;
+                first = add;
+                Count++;
+            }
+        }
     }
 }
