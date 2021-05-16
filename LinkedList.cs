@@ -6,5 +6,7 @@ namespace lab5
 {
     class LinkedList
     {
+        public Node first;
+        public int Count { get; private set; }
     }
 }
