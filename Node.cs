@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace labbb1
+namespace lab5
 {
-    class Class2
+    class Node
     {
     }
 }
