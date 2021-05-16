@@ -63,5 +63,44 @@ namespace lab5
                 Count++;
             }
         }
+
+        public void Sort()
+        {
+            Node temp = first;
+            int[] save = new int[Count];
+            for (int i = 0; i < save.Length; i++)
+            {
+                save[i] = temp.data;
+                temp = temp.next;
+            }
+            int tempo = save[0];
+
+            for (int i = 0; i < save.Length; i++)
+            {
+                for (int j = i + 1; j < save.Length; j++)
+                {
+                    if (save[i] < save[j])
+                    {
+                        tempo = save[i];
+
+                        save[i] = save[j];
+
+                        save[j] = tempo;
+                    }
+                }
+            }
+
+            for (int i = save.Length - 1; i >= 0; i--)
+            {
+                if (i == save.Length - 1)
+                    this.first = new Node(save[i]);
+                else
+                {
+                    Node t = new Node(save[i]);
+                    t.next = this.first;
+                    this.first = t;
+                }
+            }
+        }
     }
 }
