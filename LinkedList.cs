@@ -19,5 +19,17 @@ namespace lab5
             first = node;
             Count = 0;
         }
+        public void PrintList(Node start)
+        {
+            Node print = start;
+            if (print == this.first)
+                Console.WriteLine("Your list: ");
+            if (print != null)
+            {
+                Console.Write(print.data + "->");
+                PrintList(start.next);
+            }
+            if (print == null) Console.WriteLine("null");
+        }
     }
 }
