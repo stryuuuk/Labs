@@ -1,12 +1,15 @@
 ﻿using System;
 
-namespace labbb1
+namespace lab4
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            WeightedGraph graph = new WeightedGraph(5);
+            graph.Print();
+            //graph.Kruskal();
+            graph.Dijkstra(0, 4);
         }
     }
 }
