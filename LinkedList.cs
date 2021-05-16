@@ -13,5 +13,11 @@ namespace lab5
             first = null;
             Count = 0;
         }
+        public LinkedList(Node node)
+        {
+            node.next = first;
+            first = node;
+            Count = 0;
+        }
     }
 }
